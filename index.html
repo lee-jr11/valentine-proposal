@@ -125,7 +125,7 @@
         noBtn.addEventListener('click', () => {
             clickCount++;
             const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-            yesBtn.style.fontSize = `${currentSize + 20}px`;
+            yesBtn.style.fontSize = `${currentSize + 5}px`;
             
             const textIndex = Math.min(clickCount, noTexts.length - 1);
             noBtn.textContent = noTexts[textIndex];
@@ -144,3 +144,4 @@
 </body>
 
 </html>
+
