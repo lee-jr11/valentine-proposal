@@ -10,22 +10,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Changed from height to min-height */
+            height: auto;      /* Allows page to grow */
             margin: 0;
             background-color: #fce4ec; /* Light pink background */
-            overflow: hidden; 
+            overflow-y: auto;  /* Allows scrolling if needed */
+            padding-bottom: 50px; /* Extra space at the bottom */
         }
 
         .container {
             text-align: center;
             position: relative;
-            padding: 20px; /* Added padding so text doesn't touch edges on phone */
+            padding: 20px;
+            width: 100%; /* Ensures container doesn't get squished */
+            max-width: 600px; /* Keeps it looking neat on desktop */
         }
 
         h1 {
             color: #d81b60;
-            font-size: 1.5rem; /* Made smaller to fit your poem */
-            line-height: 1.5;  /* Adds space between the lines of the poem */
+            font-size: 1.5rem;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
@@ -125,6 +129,8 @@
         noBtn.addEventListener('click', () => {
             clickCount++;
             const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            
+            // This adds 5px every time. If you want it faster/slower, change the 5.
             yesBtn.style.fontSize = `${currentSize + 5}px`;
             
             const textIndex = Math.min(clickCount, noTexts.length - 1);
@@ -132,16 +138,13 @@
         });
 
         yesBtn.addEventListener('click', () => {
-            // CELEBRATION image: happy.gif
+            // CELEBRATION image: make sure you have a file named happy.gif uploaded!
             mainImage.src = "happy.gif"; 
             
-            // Replaced textContent with innerHTML to use <br> for the new line
             question.innerHTML = "YAYYY!!!<br>i love you !";
             question.classList.add("celebration");
             document.querySelector('.btn-container').style.display = 'none';
         });
     </script>
 </body>
-
 </html>
-
