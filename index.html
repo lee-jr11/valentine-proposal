@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Will you be my Valentine?</title>
+
+    <meta property="og:title" content="I have a question for you..." />
+    <meta property="og:description" content="Click to open 💌" />
+    <meta property="og:image" content="https://delta-two.vercel.app/happy.webp" /> 
+    <meta property="og:url" content="https://delta-two.vercel.app" />
+    <meta property="og:type" content="website" />
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Changed from height to min-height */
-            height: auto;      /* Allows page to grow */
+            min-height: 100vh;
+            height: auto;
             margin: 0;
-            background-color: #fce4ec; /* Light pink background */
-            overflow-y: auto;  /* Allows scrolling if needed */
-            padding-bottom: 50px; /* Extra space at the bottom */
+            background-color: #fce4ec;
+            overflow-y: auto;
+            padding-bottom: 50px;
         }
 
         .container {
             text-align: center;
             position: relative;
             padding: 20px;
-            width: 100%; /* Ensures container doesn't get squished */
-            max-width: 600px; /* Keeps it looking neat on desktop */
+            width: 100%;
+            max-width: 600px;
         }
 
         h1 {
@@ -129,8 +137,6 @@
         noBtn.addEventListener('click', () => {
             clickCount++;
             const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-            
-            // This adds 5px every time. If you want it faster/slower, change the 5.
             yesBtn.style.fontSize = `${currentSize + 5}px`;
             
             const textIndex = Math.min(clickCount, noTexts.length - 1);
@@ -138,9 +144,7 @@
         });
 
         yesBtn.addEventListener('click', () => {
-            // CELEBRATION image: make sure you have a file named happy.gif uploaded!
             mainImage.src = "happy.gif"; 
-            
             question.innerHTML = "YAYYY!!!<br>i love you !";
             question.classList.add("celebration");
             document.querySelector('.btn-container').style.display = 'none';
